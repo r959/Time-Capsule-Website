@@ -9,21 +9,32 @@
 <body>
   <div class="container">
     <h1>⏳ Time Capsule</h1>
+    
+    <button id="theme-toggle">🌙 Dark/Light Mode</button>
+
     <div id="capsule-form">
       <textarea id="message" placeholder="Write your secret message..."></textarea>
-      <select id="lock-time">
-        <option value="60000">1 Minute</option>
-        <option value="3600000">1 Hour</option>
-        <option value="86400000">1 Day</option>
-      </select>
+
+      <!-- Custom time input -->
+      <div class="custom-time">
+        <label>Custom Time:</label>
+        <input type="number" id="custom-minutes" placeholder="Minutes" min="0">
+        <input type="number" id="custom-hours" placeholder="Hours" min="0">
+        <input type="number" id="custom-days" placeholder="Days" min="0">
+      </div>
+
       <button id="lock-btn">Lock Message</button>
     </div>
 
-    <div id="capsule-output" class="hidden">
-      <p id="status"></p>
-      <p id="revealed-message" class="hidden"></p>
-    </div>
+    <h2>Your Capsules</h2>
+    <div id="capsule-list"></div>
   </div>
+
+  <!-- Sounds -->
+  <audio id="lock-sound" src="https://www.soundjay.com/button/sounds/button-3.mp3"></audio>
+  <audio id="unlock-sound" src="https://www.soundjay.com/button/sounds/button-10.mp3"></audio>
+  <audio id="emoji-sound" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
+
   <script src="script.js"></script>
 </body>
 </html>

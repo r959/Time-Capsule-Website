@@ -1,7 +1,21 @@
+:root {
+  --bg-color: linear-gradient(135deg, #667eea, #764ba2);
+  --text-color: white;
+  --capsule-bg: rgba(255, 255, 255, 0.1);
+  --button-bg: #ffcc00;
+}
+
+body.dark {
+  --bg-color: linear-gradient(135deg, #222, #555);
+  --text-color: #eee;
+  --capsule-bg: rgba(255, 255, 255, 0.05);
+  --button-bg: #ffa500;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
+  background: var(--bg-color);
+  color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,12 +28,14 @@ body {
   background: rgba(0, 0, 0, 0.3);
   padding: 20px;
   border-radius: 15px;
-  width: 350px;
+  width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 textarea {
   width: 100%;
-  height: 100px;
+  height: 80px;
   margin: 10px 0;
   padding: 10px;
   border-radius: 10px;
@@ -35,10 +51,116 @@ select, button {
 }
 
 button {
-  background: #ffcc00;
+  background: var(--button-bg);
   font-weight: bold;
 }
 
-.hidden {
-  display: none;
+#theme-toggle {
+  background: transparent;
+  border: 2px solid var(--text-color);
+  margin-bottom: 10px;
+}
+
+.capsule {
+  background: var(--capsule-bg);
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: left;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-in-out;
+}
+
+.capsule.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.capsule button {
+  background: crimson;
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Animated Gradient Background */
+body {
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 15px;
+  width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.custom-time {
+  margin: 10px 0;
+}
+
+.custom-time input {
+  width: 80px;
+  padding: 5px;
+  margin: 2px;
+  border-radius: 5px;
+  border: none;
+}
+
+.capsule {
+  background: var(--capsule-bg);
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: left;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s ease-in-out;
+}
+
+.capsule.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.capsule.unlock {
+  animation: unlockVault 1s ease forwards;
+}
+
+@keyframes unlockVault {
+  0% { transform: scale(0.9) rotate(-5deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Emoji Reactions */
+.emoji-reactions {
+  margin-top: 10px;
+}
+
+.emoji-reactions span {
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+  transition: transform 0.2s;
+}
+
+.emoji-reactions span:hover {
+  transform: scale(1.3);
 }

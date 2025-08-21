@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Capsule</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>⏳ Time Capsule</h1>
+    <div id="capsule-form">
+      <textarea id="message" placeholder="Write your secret message..."></textarea>
+      <select id="lock-time">
+        <option value="60000">1 Minute</option>
+        <option value="3600000">1 Hour</option>
+        <option value="86400000">1 Day</option>
+      </select>
+      <button id="lock-btn">Lock Message</button>
+    </div>
+
+    <div id="capsule-output" class="hidden">
+      <p id="status"></p>
+      <p id="revealed-message" class="hidden"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
